@@ -1,0 +1,970 @@
+2025-11-22 15:27:26 [main] INFO  com.chronos.ChronosApplication - Starting ChronosApplication using Java 21.0.7 with PID 6572 (E:\chronos\target\classes started by Arun in E:\chronos)
+2025-11-22 15:27:26 [main] INFO  com.chronos.ChronosApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-22 15:27:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 15:27:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101 ms. Found 2 JPA repository interfaces.
+2025-11-22 15:27:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-22 15:27:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-22 15:27:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-22 15:27:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-22 15:27:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1521 ms
+2025-11-22 15:27:28 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 15:27:28 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-22 15:27:28 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-22 15:27:28 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-22 15:27:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:27:29 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:273)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:27:29 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:273)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:27:29 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-22 15:27:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-22 15:27:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:27:31 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:98)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:27:31 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2025-11-22 15:27:31 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - FATAL: password authentication failed for user "postgres"
+2025-11-22 15:27:31 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+2025-11-22 15:27:31 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+2025-11-22 15:27:31 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-22 15:27:31 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-22 15:27:31 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:98)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 40 common frames omitted
+2025-11-22 15:28:03 [main] INFO  com.chronos.ChronosApplication - Starting ChronosApplication using Java 21.0.7 with PID 5852 (E:\chronos\target\classes started by Arun in E:\chronos)
+2025-11-22 15:28:03 [main] INFO  com.chronos.ChronosApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-22 15:28:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 15:28:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 2 JPA repository interfaces.
+2025-11-22 15:28:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-22 15:28:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-22 15:28:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-22 15:28:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-22 15:28:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1221 ms
+2025-11-22 15:28:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 15:28:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-22 15:28:04 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-22 15:28:04 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-22 15:28:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:28:05 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:273)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:28:05 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:273)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:28:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-22 15:28:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-22 15:28:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:28:07 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:98)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+2025-11-22 15:28:07 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2025-11-22 15:28:07 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - FATAL: password authentication failed for user "postgres"
+2025-11-22 15:28:07 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+2025-11-22 15:28:07 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+2025-11-22 15:28:07 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-11-22 15:28:07 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-22 15:28:07 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.chronos.ChronosApplication.main(ChronosApplication.java:11)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [FATAL: password authentication failed for user "postgres"] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:98)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:295)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:424)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 40 common frames omitted
+2025-11-22 15:29:44 [main] INFO  com.chronos.ChronosApplication - Starting ChronosApplication using Java 21.0.7 with PID 17676 (E:\chronos\target\classes started by Arun in E:\chronos)
+2025-11-22 15:29:44 [main] INFO  com.chronos.ChronosApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-22 15:29:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 15:29:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 2 JPA repository interfaces.
+2025-11-22 15:29:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-22 15:29:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-22 15:29:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-22 15:29:45 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-22 15:29:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1517 ms
+2025-11-22 15:29:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 15:29:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-22 15:29:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-22 15:29:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-22 15:29:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:29:46 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6f785a27
+2025-11-22 15:29:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-22 15:29:46 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-22 15:29:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-22 15:29:47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 15:29:47 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-22 15:29:48 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-22 15:29:48 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-22 15:29:48 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26db1100, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26d68ea4, org.springframework.security.web.context.SecurityContextHolderFilter@7adc8212, org.springframework.security.web.header.HeaderWriterFilter@153f6a67, org.springframework.web.filter.CorsFilter@18bec5eb, org.springframework.security.web.authentication.logout.LogoutFilter@4982b310, com.chronos.security.JwtAuthenticationFilter@ce655b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3564caf8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d0c35a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1155ab2c, org.springframework.security.web.session.SessionManagementFilter@5c00b341, org.springframework.security.web.access.ExceptionTranslationFilter@129204bf, org.springframework.security.web.access.intercept.AuthorizationFilter@53ed864c]
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Inferred argument type for public void com.chronos.consumer.JobConsumer.consumeJob(java.lang.String) is class java.lang.String
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 10
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-11-22 15:29:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-11-22 15:29:49 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-11-22 15:29:49 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e9c59ed:0/SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-11-22 15:29:49 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-11-22 15:29:49 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bacbb8 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'job.execution.queue'
+2025-11-22 15:29:49 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'job.execution.dlq'
+2025-11-22 15:29:49 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@5708b827: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@1e64a724: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@7a76e1b9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,4)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@9edb372: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,5)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@44bd3dc5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,6)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-Tv2RX3a80wAFLPPB0VNmIg: Consumer@9edb372: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-Y2b3Gy8smYADVTZ36WWlfw: Consumer@7a76e1b9: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-D8fpHDXYyxQianhi-KHoLA: Consumer@5708b827: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-h3gM9G0s87noBr9xha5emw: Consumer@44bd3dc5: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-je1UT-ioE5ibI560FZmtIQ: Consumer@1e64a724: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@1e64a724: tags=[[amq.ctag-je1UT-ioE5ibI560FZmtIQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@7da298aa: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@7a76e1b9: tags=[[amq.ctag-Y2b3Gy8smYADVTZ36WWlfw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@9edb372: tags=[[amq.ctag-Tv2RX3a80wAFLPPB0VNmIg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@5708b827: tags=[[amq.ctag-D8fpHDXYyxQianhi-KHoLA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@44bd3dc5: tags=[[amq.ctag-h3gM9G0s87noBr9xha5emw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,7)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@70f0a3a3: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@7da298aa: tags=[[amq.ctag-Nvxe9-Q25si1joW1MyCMOQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-Nvxe9-Q25si1joW1MyCMOQ: Consumer@7da298aa: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,8)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-4czfceT2WP8CSjGRd3JMLQ: Consumer@70f0a3a3: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@5e5db72e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@70f0a3a3: tags=[[amq.ctag-4czfceT2WP8CSjGRd3JMLQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,9)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@309d298: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-NXuDbstoiZDyjX_JyXP9bQ: Consumer@5e5db72e: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@5e5db72e: tags=[[amq.ctag-NXuDbstoiZDyjX_JyXP9bQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,10)
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-1jfVcWPJBi3w6C-JKzbMUw: Consumer@309d298: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001de01bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:29:49 [pool-2-thread-11] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@309d298: tags=[[amq.ctag-1jfVcWPJBi3w6C-JKzbMUw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@77ea06bb: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [pool-2-thread-12] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@77ea06bb: tags=[[amq.ctag-6q-Z5BoWjqLIfkRsL__XhQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-6q-Z5BoWjqLIfkRsL__XhQ: Consumer@77ea06bb: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:29:49 [main] INFO  com.chronos.ChronosApplication - Started ChronosApplication in 5.837 seconds (process running for 6.144)
+2025-11-22 15:31:51 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-22 15:31:51 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-22 15:31:51 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-22 15:31:51 [http-nio-8080-exec-2] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/jobs' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-11-22 15:31:51 [http-nio-8080-exec-2] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/jobs' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-11-22 15:34:12 [http-nio-8080-exec-5] INFO  c.chronos.controller.JobController - GET /api/jobs?owner=null&page=0&size=10
+2025-11-22 15:34:25 [http-nio-8080-exec-6] INFO  c.chronos.controller.JobController - POST /api/jobs - Creating job: Echo Hello
+2025-11-22 15:34:25 [http-nio-8080-exec-6] INFO  com.chronos.service.JobService - Creating job: Echo Hello for owner: dev
+2025-11-22 15:34:25 [http-nio-8080-exec-6] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,11)
+2025-11-22 15:34:25 [http-nio-8080-exec-6] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x000001de01d04c20 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,11), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:34:25 [http-nio-8080-exec-6] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'"1"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=3, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [], routingKey = [job.execution.queue]
+2025-11-22 15:34:25 [http-nio-8080-exec-6] INFO  com.chronos.service.JobQueueService - Enqueued job 1 to queue job.execution.queue
+2025-11-22 15:34:25 [pool-2-thread-13] DEBUG o.s.a.r.l.BlockingQueueConsumer - Storing delivery for consumerTag: 'amq.ctag-Tv2RX3a80wAFLPPB0VNmIg' with deliveryTag: '1' in Consumer@9edb372: tags=[[amq.ctag-Tv2RX3a80wAFLPPB0VNmIg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received message: (Body:'"1"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, redelivered=false, receivedExchange=, receivedRoutingKey=job.execution.queue, deliveryTag=1, consumerTag=amq.ctag-Tv2RX3a80wAFLPPB0VNmIg, consumerQueue=job.execution.queue])
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Processing [GenericMessage [payload=1, headers={amqp_receivedDeliveryMode=PERSISTENT, amqp_receivedRoutingKey=job.execution.queue, amqp_contentEncoding=UTF-8, amqp_deliveryTag=1, amqp_consumerQueue=job.execution.queue, amqp_redelivered=false, id=ddf0fc4b-ed34-9da9-357e-a9398debade5, amqp_consumerTag=amq.ctag-Tv2RX3a80wAFLPPB0VNmIg, amqp_lastInBatch=false, contentType=application/json, __TypeId__=java.lang.String, timestamp=1763805865840}]]
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  com.chronos.consumer.JobConsumer - Received job execution request for job ID: 1
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  c.c.service.JobExecutionService - Executing job 1 of type SHELL_SCRIPT
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  c.c.service.JobExecutionService - Executing shell script job: Echo Hello
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  c.c.service.JobExecutionService - Job 1 completed successfully
+2025-11-22 15:34:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  c.c.service.NotificationService - Job 1 completed successfully. Owner: dev
+2025-11-22 15:34:39 [http-nio-8080-exec-8] INFO  c.chronos.controller.JobController - GET /api/jobs?owner=null&page=0&size=10
+2025-11-22 15:34:50 [http-nio-8080-exec-10] INFO  c.chronos.controller.JobController - GET /api/jobs/1
+2025-11-22 15:35:02 [http-nio-8080-exec-9] INFO  c.chronos.controller.JobController - POST /api/jobs - Creating job: Check Website Health
+2025-11-22 15:35:02 [http-nio-8080-exec-9] INFO  com.chronos.service.JobService - Creating job: Check Website Health for owner: admin
+2025-11-22 15:35:02 [http-nio-8080-exec-9] ERROR c.c.exception.GlobalExceptionHandler - Illegal argument
+java.lang.IllegalArgumentException: Invalid cron expression for recurring job: 0/30 * * * * *
+	at com.chronos.service.JobService.createJob(JobService.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.chronos.service.JobService$$SpringCGLIB$$0.createJob(<generated>)
+	at com.chronos.controller.JobController.createJob(JobController.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.chronos.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-22 15:46:19 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-11-22 15:46:19 [pool-2-thread-14] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-je1UT-ioE5ibI560FZmtIQ (job.execution.queue); Consumer@1e64a724: tags=[[amq.ctag-je1UT-ioE5ibI560FZmtIQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-15] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-1jfVcWPJBi3w6C-JKzbMUw (job.execution.queue); Consumer@309d298: tags=[[amq.ctag-1jfVcWPJBi3w6C-JKzbMUw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-16] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-6q-Z5BoWjqLIfkRsL__XhQ (job.execution.queue); Consumer@77ea06bb: tags=[[amq.ctag-6q-Z5BoWjqLIfkRsL__XhQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-17] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-NXuDbstoiZDyjX_JyXP9bQ (job.execution.queue); Consumer@5e5db72e: tags=[[amq.ctag-NXuDbstoiZDyjX_JyXP9bQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-18] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-4czfceT2WP8CSjGRd3JMLQ (job.execution.queue); Consumer@70f0a3a3: tags=[[amq.ctag-4czfceT2WP8CSjGRd3JMLQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-19] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-Nvxe9-Q25si1joW1MyCMOQ (job.execution.queue); Consumer@7da298aa: tags=[[amq.ctag-Nvxe9-Q25si1joW1MyCMOQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-20] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-h3gM9G0s87noBr9xha5emw (job.execution.queue); Consumer@44bd3dc5: tags=[[amq.ctag-h3gM9G0s87noBr9xha5emw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-21] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-Tv2RX3a80wAFLPPB0VNmIg (job.execution.queue); Consumer@9edb372: tags=[[amq.ctag-Tv2RX3a80wAFLPPB0VNmIg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-22] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-Y2b3Gy8smYADVTZ36WWlfw (job.execution.queue); Consumer@7a76e1b9: tags=[[amq.ctag-Y2b3Gy8smYADVTZ36WWlfw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-D8fpHDXYyxQianhi-KHoLA (job.execution.queue); Consumer@5708b827: tags=[[amq.ctag-D8fpHDXYyxQianhi-KHoLA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@5708b827: tags=[[amq.ctag-D8fpHDXYyxQianhi-KHoLA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@7a76e1b9: tags=[[amq.ctag-Y2b3Gy8smYADVTZ36WWlfw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@7da298aa: tags=[[amq.ctag-Nvxe9-Q25si1joW1MyCMOQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@309d298: tags=[[amq.ctag-1jfVcWPJBi3w6C-JKzbMUw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@1e64a724: tags=[[amq.ctag-je1UT-ioE5ibI560FZmtIQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@44bd3dc5: tags=[[amq.ctag-h3gM9G0s87noBr9xha5emw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@77ea06bb: tags=[[amq.ctag-6q-Z5BoWjqLIfkRsL__XhQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@5e5db72e: tags=[[amq.ctag-NXuDbstoiZDyjX_JyXP9bQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@70f0a3a3: tags=[[amq.ctag-4czfceT2WP8CSjGRd3JMLQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@9edb372: tags=[[amq.ctag-Tv2RX3a80wAFLPPB0VNmIg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@96b00fb Shared Rabbit Connection: SimpleConnection@109fa8e2 [delegate=amqp://guest@127.0.0.1:5672/, localPort=57052]
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4)
+2025-11-22 15:46:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-11-22 15:46:20 [SpringApplicationShutdownHook] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,11)
+2025-11-22 15:46:20 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-11-22 15:46:20 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 15:46:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-22 15:46:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-22 15:47:09 [main] INFO  com.chronos.ChronosApplication - Starting ChronosApplication using Java 21.0.7 with PID 18688 (E:\chronos\target\classes started by Arun in E:\chronos)
+2025-11-22 15:47:09 [main] INFO  com.chronos.ChronosApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-22 15:47:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 15:47:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 2 JPA repository interfaces.
+2025-11-22 15:47:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-11-22 15:47:11 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-22 15:47:11 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-22 15:47:11 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-22 15:47:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1257 ms
+2025-11-22 15:47:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 15:47:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-22 15:47:11 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-22 15:47:11 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-22 15:47:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-22 15:47:11 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bf26810
+2025-11-22 15:47:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-22 15:47:11 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-22 15:47:12 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-22 15:47:12 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 15:47:12 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-22 15:47:13 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-22 15:47:13 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-22 15:47:13 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3f30c9cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@496203da, org.springframework.security.web.context.SecurityContextHolderFilter@13b6f82d, org.springframework.security.web.header.HeaderWriterFilter@626e3b18, org.springframework.web.filter.CorsFilter@6831286e, org.springframework.security.web.authentication.logout.LogoutFilter@13809190, com.chronos.security.JwtAuthenticationFilter@67e6eb52, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7aafaf44, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20c642ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a4fa5df, org.springframework.security.web.session.SessionManagementFilter@6a5c67cf, org.springframework.security.web.access.ExceptionTranslationFilter@6ab80ea, org.springframework.security.web.access.intercept.AuthorizationFilter@122f58a]
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Inferred argument type for public void com.chronos.consumer.JobConsumer.consumeJob(java.lang.String) is class java.lang.String
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 10
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-11-22 15:47:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-11-22 15:47:14 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-11-22 15:47:14 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#541c32de:0/SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-11-22 15:47:14 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-11-22 15:47:14 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634baf830 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'job.execution.queue'
+2025-11-22 15:47:14 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'job.execution.dlq'
+2025-11-22 15:47:14 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@22cc606d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@2432c72c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@300788d6: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,4)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@13987842: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,5)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@710959b3: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-rIYxpYMxESOmsc9kY4YAEg: Consumer@2432c72c: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-2KNGFaT2ceOoRFKRDemDJA: Consumer@13987842: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-sTcQZULxsNBv5ZgDSNumbA: Consumer@300788d6: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@300788d6: tags=[[amq.ctag-sTcQZULxsNBv5ZgDSNumbA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@13987842: tags=[[amq.ctag-2KNGFaT2ceOoRFKRDemDJA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,6)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-9onY39eFAmNkNmC92HlqlA: Consumer@22cc606d: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@2432c72c: tags=[[amq.ctag-rIYxpYMxESOmsc9kY4YAEg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@22cc606d: tags=[[amq.ctag-9onY39eFAmNkNmC92HlqlA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-YqN12HNtZBw5dhCSJjBiBw: Consumer@710959b3: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@710959b3: tags=[[amq.ctag-YqN12HNtZBw5dhCSJjBiBw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@1eb9ab8f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,7)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [pool-2-thread-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@1eb9ab8f: tags=[[amq.ctag-z0_R3f6gJAinCRQX2OROhw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-z0_R3f6gJAinCRQX2OROhw: Consumer@1eb9ab8f: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@15a806a2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,8)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@7784ff80: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-ETZjTVbuobt2zQ-KL2XjFQ: Consumer@15a806a2: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@15a806a2: tags=[[amq.ctag-ETZjTVbuobt2zQ-KL2XjFQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,9)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-SgMY_BpFNGfrc0jF_zPrKw: Consumer@7784ff80: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@7784ff80: tags=[[amq.ctag-SgMY_BpFNGfrc0jF_zPrKw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@2121d0ed: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,10)
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-nVTec2vd3LIWmO84IqlYgg: Consumer@2121d0ed: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000020634bb2e78 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:14 [pool-2-thread-11] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@2121d0ed: tags=[[amq.ctag-nVTec2vd3LIWmO84IqlYgg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@3e755a96: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'job.execution.queue' with tag amq.ctag-QXgzWQcDSGDheUKePRKqsw: Consumer@3e755a96: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [pool-2-thread-12] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@3e755a96: tags=[[amq.ctag-QXgzWQcDSGDheUKePRKqsw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:14 [main] INFO  com.chronos.ChronosApplication - Started ChronosApplication in 4.656 seconds (process running for 4.899)
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-22 15:47:30 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/jobs' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-11-22 15:47:30 [http-nio-8080-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/jobs' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  c.chronos.controller.JobController - POST /api/jobs - Creating job: Echo Hello
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  com.chronos.service.JobService - Creating job: Echo Hello for owner: dev
+2025-11-22 15:47:30 [http-nio-8080-exec-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,11)
+2025-11-22 15:47:30 [http-nio-8080-exec-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000020634cea830 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,11), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:30 [http-nio-8080-exec-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'"2"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=3, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [], routingKey = [job.execution.queue]
+2025-11-22 15:47:30 [http-nio-8080-exec-1] INFO  com.chronos.service.JobQueueService - Enqueued job 2 to queue job.execution.queue
+2025-11-22 15:47:30 [pool-2-thread-13] DEBUG o.s.a.r.l.BlockingQueueConsumer - Storing delivery for consumerTag: 'amq.ctag-9onY39eFAmNkNmC92HlqlA' with deliveryTag: '1' in Consumer@22cc606d: tags=[[amq.ctag-9onY39eFAmNkNmC92HlqlA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received message: (Body:'"2"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, redelivered=false, receivedExchange=, receivedRoutingKey=job.execution.queue, deliveryTag=1, consumerTag=amq.ctag-9onY39eFAmNkNmC92HlqlA, consumerQueue=job.execution.queue])
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Processing [GenericMessage [payload=2, headers={amqp_receivedDeliveryMode=PERSISTENT, amqp_receivedRoutingKey=job.execution.queue, amqp_contentEncoding=UTF-8, amqp_deliveryTag=1, amqp_consumerQueue=job.execution.queue, amqp_redelivered=false, id=5537e27b-7f71-6857-3c8e-f0d44473330a, amqp_consumerTag=amq.ctag-9onY39eFAmNkNmC92HlqlA, amqp_lastInBatch=false, contentType=application/json, __TypeId__=java.lang.String, timestamp=1763806650466}]]
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.chronos.consumer.JobConsumer - Received job execution request for job ID: 2
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  c.c.service.JobExecutionService - Executing job 2 of type SHELL_SCRIPT
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  c.c.service.JobExecutionService - Executing shell script job: Echo Hello
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  c.c.service.JobExecutionService - Job 2 completed successfully
+2025-11-22 15:47:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  c.c.service.NotificationService - Job 2 completed successfully. Owner: dev
+2025-11-22 15:47:32 [http-nio-8080-exec-2] INFO  c.chronos.controller.JobController - POST /api/jobs - Creating job: Echo Hello
+2025-11-22 15:47:32 [http-nio-8080-exec-2] INFO  com.chronos.service.JobService - Creating job: Echo Hello for owner: dev
+2025-11-22 15:47:32 [http-nio-8080-exec-2] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000020634cea830 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,11), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:47:32 [http-nio-8080-exec-2] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'"3"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=3, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [], routingKey = [job.execution.queue]
+2025-11-22 15:47:32 [http-nio-8080-exec-2] INFO  com.chronos.service.JobQueueService - Enqueued job 3 to queue job.execution.queue
+2025-11-22 15:47:32 [pool-2-thread-14] DEBUG o.s.a.r.l.BlockingQueueConsumer - Storing delivery for consumerTag: 'amq.ctag-sTcQZULxsNBv5ZgDSNumbA' with deliveryTag: '1' in Consumer@300788d6: tags=[[amq.ctag-sTcQZULxsNBv5ZgDSNumbA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received message: (Body:'"3"' MessageProperties [headers={__TypeId__=java.lang.String}, contentType=application/json, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, redelivered=false, receivedExchange=, receivedRoutingKey=job.execution.queue, deliveryTag=1, consumerTag=amq.ctag-sTcQZULxsNBv5ZgDSNumbA, consumerQueue=job.execution.queue])
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Processing [GenericMessage [payload=3, headers={amqp_receivedDeliveryMode=PERSISTENT, amqp_receivedRoutingKey=job.execution.queue, amqp_contentEncoding=UTF-8, amqp_deliveryTag=1, amqp_consumerQueue=job.execution.queue, amqp_redelivered=false, id=5a4fd521-5e78-982a-77c8-fc1f15afed0f, amqp_consumerTag=amq.ctag-sTcQZULxsNBv5ZgDSNumbA, amqp_lastInBatch=false, contentType=application/json, __TypeId__=java.lang.String, timestamp=1763806652143}]]
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  com.chronos.consumer.JobConsumer - Received job execution request for job ID: 3
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  c.c.service.JobExecutionService - Executing job 3 of type SHELL_SCRIPT
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  c.c.service.JobExecutionService - Executing shell script job: Echo Hello
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  c.c.service.JobExecutionService - Job 3 completed successfully
+2025-11-22 15:47:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  c.c.service.NotificationService - Job 3 completed successfully. Owner: dev
+2025-11-22 15:48:19 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-11-22 15:48:19 [pool-2-thread-15] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-9onY39eFAmNkNmC92HlqlA (job.execution.queue); Consumer@22cc606d: tags=[[amq.ctag-9onY39eFAmNkNmC92HlqlA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-16] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-sTcQZULxsNBv5ZgDSNumbA (job.execution.queue); Consumer@300788d6: tags=[[amq.ctag-sTcQZULxsNBv5ZgDSNumbA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-17] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-QXgzWQcDSGDheUKePRKqsw (job.execution.queue); Consumer@3e755a96: tags=[[amq.ctag-QXgzWQcDSGDheUKePRKqsw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-18] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-SgMY_BpFNGfrc0jF_zPrKw (job.execution.queue); Consumer@7784ff80: tags=[[amq.ctag-SgMY_BpFNGfrc0jF_zPrKw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-19] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-z0_R3f6gJAinCRQX2OROhw (job.execution.queue); Consumer@1eb9ab8f: tags=[[amq.ctag-z0_R3f6gJAinCRQX2OROhw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-20] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-ETZjTVbuobt2zQ-KL2XjFQ (job.execution.queue); Consumer@15a806a2: tags=[[amq.ctag-ETZjTVbuobt2zQ-KL2XjFQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-21] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-YqN12HNtZBw5dhCSJjBiBw (job.execution.queue); Consumer@710959b3: tags=[[amq.ctag-YqN12HNtZBw5dhCSJjBiBw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-22] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-2KNGFaT2ceOoRFKRDemDJA (job.execution.queue); Consumer@13987842: tags=[[amq.ctag-2KNGFaT2ceOoRFKRDemDJA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-nVTec2vd3LIWmO84IqlYgg (job.execution.queue); Consumer@2121d0ed: tags=[[amq.ctag-nVTec2vd3LIWmO84IqlYgg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@7784ff80: tags=[[amq.ctag-SgMY_BpFNGfrc0jF_zPrKw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-rIYxpYMxESOmsc9kY4YAEg (job.execution.queue); Consumer@2432c72c: tags=[[amq.ctag-rIYxpYMxESOmsc9kY4YAEg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@15a806a2: tags=[[amq.ctag-ETZjTVbuobt2zQ-KL2XjFQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@2432c72c: tags=[[amq.ctag-rIYxpYMxESOmsc9kY4YAEg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@3e755a96: tags=[[amq.ctag-QXgzWQcDSGDheUKePRKqsw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@13987842: tags=[[amq.ctag-2KNGFaT2ceOoRFKRDemDJA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@710959b3: tags=[[amq.ctag-YqN12HNtZBw5dhCSJjBiBw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,10)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@1eb9ab8f: tags=[[amq.ctag-z0_R3f6gJAinCRQX2OROhw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,8)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,6)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,7)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,4)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,5)
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@22cc606d: tags=[[amq.ctag-9onY39eFAmNkNmC92HlqlA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@300788d6: tags=[[amq.ctag-sTcQZULxsNBv5ZgDSNumbA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@2121d0ed: tags=[[amq.ctag-nVTec2vd3LIWmO84IqlYgg]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887], acknowledgeMode=AUTO local queue size=0
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9), conn: Proxy@17ee816c Shared Rabbit Connection: SimpleConnection@1192e221 [delegate=amqp://guest@127.0.0.1:5672/, localPort=53887]
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,9)
+2025-11-22 15:48:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-11-22 15:48:20 [SpringApplicationShutdownHook] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,11)
+2025-11-22 15:48:20 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-11-22 15:48:20 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 15:48:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-22 15:48:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

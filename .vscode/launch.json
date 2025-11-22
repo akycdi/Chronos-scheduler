@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ChronosApplication<chronos-scheduler>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.chronos.ChronosApplication",
+            "projectName": "chronos-scheduler",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
