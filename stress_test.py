@@ -3,34 +3,59 @@ import urllib.error
 import json
 import time
 import concurrent.futures
-import random
+import logging
+from typing import Optional, Tuple
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
 
 # Configuration
 BASE_URL = "http://localhost:8080/api"
+AUTH_URL = f"{BASE_URL}/auth/login"
+JOBS_URL = f"{BASE_URL}/jobs"
+
+# Test Credentials
 USERNAME = "admin"
 PASSWORD = "admin"
+
+# Test Parameters
 NUM_REQUESTS = 1000
 CONCURRENCY = 10
 
-def login():
-    url = f"{BASE_URL}/auth/login"
-    data = json.dumps({"username": USERNAME, "password": PASSWORD}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+def login() -> Optional[str]:
+    """Authenticates with the API and returns the JWT token."""
+    payload = json.dumps({"username": USERNAME, "password": PASSWORD}).encode('utf-8')
+    req = urllib.request.Request(
+        AUTH_URL, 
+        data=payload, 
+        headers={'Content-Type': 'application/json', 'User-Agent': 'ChronosStressTest/1.0'}
+    )
     
     try:
         with urllib.request.urlopen(req) as response:
             if response.status == 200:
                 body = json.loads(response.read().decode('utf-8'))
+                logger.info("Authentication successful.")
                 return body['token']
     except urllib.error.URLError as e:
-        print(f"Login failed: {e}")
-        return None
+        logger.error(f"Login failed: {e}")
+    except Exception as e:
+        logger.error(f"Unexpected error during login: {e}")
+        
+    return None
 
-def create_job(token, job_id):
-    url = f"{BASE_URL}/jobs"
+def create_job(token: str, job_id: int) -> Tuple[int, float]:
+    """
+    Creates a single job and returns the status code and duration.
+    """
     job_name = f"Stress Test Job {job_id}"
     
-    payload = {
+    payload_dict = {
         "name": job_name,
         "owner": "stress_tester",
         "type": "SHELL_SCRIPT",
@@ -40,36 +65,40 @@ def create_job(token, job_id):
         "maxRetries": 0
     }
     
-    data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(url, data=data, headers={
+    data = json.dumps(payload_dict).encode('utf-8')
+    req = urllib.request.Request(JOBS_URL, data=data, headers={
         'Content-Type': 'application/json',
-        'Authorization': f"Bearer {token}"
+        'Authorization': f"Bearer {token}",
+        'User-Agent': 'ChronosStressTest/1.0'
     })
     
     start_time = time.time()
     try:
         with urllib.request.urlopen(req) as response:
+            # We must read the response to complete the request
+            response.read()
             duration = (time.time() - start_time) * 1000
+            # logger.debug(f"Job {job_id} created successfully in {duration:.2f}ms")
             return response.status, duration
     except urllib.error.HTTPError as e:
+        logger.warning(f"Failed to create job {job_id}: HTTP {e.code}")
         return e.code, 0
     except Exception as e:
-        print(f"Request failed: {e}")
+        logger.error(f"Request for job {job_id} failed: {e}")
         return 0, 0
 
 def run_stress_test():
-    print("Starting stress test...")
+    """Runs the concurrent stress test."""
+    logger.info("Starting stress test...")
+    logger.info(f"Configuration: Requests={NUM_REQUESTS}, Concurrency={CONCURRENCY}")
     
-    # 1. Login
-    print("Authenticating...")
     token = login()
     if not token:
-        print("Could not obtain token. Exiting.")
+        logger.critical("Could not obtain token. Aborting stress test.")
         return
 
-    print(f"Authenticated. Token obtained.")
-    print(f"Simulating {NUM_REQUESTS} requests with concurrency {CONCURRENCY}...")
-
+    logger.info("Starting request generation...")
+    
     success_count = 0
     fail_count = 0
     total_duration = 0
@@ -79,25 +108,30 @@ def run_stress_test():
     with concurrent.futures.ThreadPoolExecutor(max_workers=CONCURRENCY) as executor:
         futures = [executor.submit(create_job, token, i) for i in range(NUM_REQUESTS)]
         
-        for future in concurrent.futures.as_completed(futures):
+        # Process as they complete to show progress if needed, but for speed we just gather
+        for i, future in enumerate(concurrent.futures.as_completed(futures)):
             status, duration = future.result()
-            if status == 201:
+            if status == 201 or status == 200:
                 success_count += 1
                 total_duration += duration
             else:
                 fail_count += 1
+                
+            if (i + 1) % 100 == 0:
+                logger.info(f"Processed {i + 1}/{NUM_REQUESTS} requests...")
 
     end_time = time.time()
     total_time = end_time - start_time
     
-    print("\n--- Stress Test Results ---")
-    print(f"Total Requests: {NUM_REQUESTS}")
-    print(f"Successful: {success_count}")
-    print(f"Failed: {fail_count}")
-    print(f"Total Time: {total_time:.2f} seconds")
-    print(f"Requests/sec: {NUM_REQUESTS / total_time:.2f}")
+    logger.info("--- Stress Test Results ---")
+    logger.info(f"Total Requests: {NUM_REQUESTS}")
+    logger.info(f"Successful:    {success_count}")
+    logger.info(f"Failed:        {fail_count}")
+    logger.info(f"Total Time:    {total_time:.2f} seconds")
+    logger.info(f"Throughput:    {NUM_REQUESTS / total_time:.2f} req/sec")
     if success_count > 0:
-        print(f"Avg Latency: {total_duration / success_count:.2f} ms")
+        logger.info(f"Avg Latency:   {total_duration / success_count:.2f} ms")
 
 if __name__ == "__main__":
     run_stress_test()
+

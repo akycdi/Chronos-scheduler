@@ -34,6 +34,10 @@ Chronos is a robust and scalable distributed job scheduling system built with Sp
    - Prometheus metrics integration
    - Health check endpoints
    - System statistics and monitoring APIs
+6. **Admin Dashboard (New)**
+   - Web-based UI for job management
+   - Real-time status monitoring
+   - Job execution history visualization
 
 ## Architecture
 
@@ -87,6 +91,7 @@ Client → API Gateway → Auth & Validation → Scheduler Service (persistent s
 - Maven 3.6+
 - PostgreSQL 12+
 - RabbitMQ 3.8+
+- Node.js 18+ (for Frontend UI)
 
 ## Setup Instructions
 
@@ -135,6 +140,17 @@ mvn spring-boot:run
 ```
 
 The application will start on port 8080 by default.
+### 5. Frontend UI Setup
+
+Navigate to the `chronos-ui` directory and start the development server:
+
+```bash
+cd chronos-ui
+npm install
+npm run dev
+```
+
+The UI will be available at `http://localhost:5173` (default Vite port).
 
 ## API Documentation
 
@@ -413,7 +429,28 @@ Available Prometheus metrics:
 3. **Create a job**
 4. **Monitor job execution via logs and metrics**
 
+### Automated Testing
+
+#### Stress Testing
+A Python script is provided to stress test the system by generating concurrent job submissions.
+
+```bash
+# Install python dependencies (if any standard libs are insufficient)
+# The script uses standard libraries but ensure you have Python 3.8+
+
+python stress_test.py
+```
+
+Configuration variables (concurrency, number of requests) can be modified directly in the `stress_test.py` file.
+
+#### Postman Tests
+- `chronos_postman_collection.json`: Complete API collection.
+- `chronos_automated_tests.json`: Automated test scenarios.
+
+Import these into Postman to run integration tests against the running API.
+
 ### Example cURL Commands
+
 
 ```bash
 # Login
