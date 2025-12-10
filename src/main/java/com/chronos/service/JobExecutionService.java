@@ -106,7 +106,7 @@ public class JobExecutionService {
 
             if (shouldRetry) {
                 log.info("Job {} will be retried (attempt {}/{})",
-                        jobId, job.getCurrentRetries() + 1, job.getMaxRetries());
+                        jobId, job.getCurrentRetries(), job.getMaxRetries());
             } else {
                 log.error("Job {} failed after {} retries", jobId, job.getMaxRetries());
                 notificationService.notifyJobFailure(job, e.getMessage());

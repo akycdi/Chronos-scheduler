@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "chronos-verification-suite",
+		"name": "Chronos Verification Suite",
+		"description": "Comprehensive tests for all 5 Chronos requirements: Submission, Recurring, Management, Failure, Monitoring.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0. Setup",
+			"item": [
+				{
+					"name": "Login & Get Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"token\", jsonData.token);",
+									"console.log(\"Token set: \" + jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "1. Job Submission",
+			"item": [
+				{
+					"name": "1a. Submit HTTP Job (Immediate)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"httpJobId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test HTTP Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Immediate execution test\",\n    \"jobData\": \"{\\\"url\\\": \\\"https://jsonplaceholder.typicode.com/todos/1\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					}
+				},
+				{
+					"name": "1b. Submit Shell Job (Future)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"futureJobId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Future Shell Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"SHELL_SCRIPT\",\n    \"description\": \"Scheduled for future\",\n    \"schedule\": \"2099-12-31T23:59:59\",\n    \"jobData\": \"{\\\"script\\\": \\\"echo Future Execution\\\"}\",\n    \"isRecurring\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "2. Recurring Jobs",
+			"item": [
+				{
+					"name": "2a. Submit Recurring Shell Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"recurringJobId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Recurring Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"SHELL_SCRIPT\",\n    \"description\": \"Runs every 10 seconds\",\n    \"schedule\": \"0/10 * * * * ?\",\n    \"jobData\": \"{\\\"script\\\": \\\"echo Recurring Run\\\"}\",\n    \"isRecurring\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					}
+				},
+				{
+					"name": "2b. Submit Recurring HTTP Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"recurringHttpJobId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Recurring HTTP Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Pings API every 15 seconds\",\n    \"schedule\": \"0/15 * * * * ?\",\n    \"jobData\": \"{\\\"url\\\": \\\"https://jsonplaceholder.typicode.com/todos/1\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "3. Job Management",
+			"item": [
+				{
+					"name": "3a. List All Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs?page=0&size=5",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"],
+							"query": [
+								{ "key": "page", "value": "0" },
+								{ "key": "size", "value": "5" }
+							]
+						}
+					}
+				},
+				{
+					"name": "3b. Get Job Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{recurringJobId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{recurringJobId}}"]
+						}
+					}
+				},
+				{
+					"name": "3c. Reschedule Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schedule\": \"0 0 * * * ?\",\n    \"isRecurring\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{recurringJobId}}/reschedule",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{recurringJobId}}", "reschedule"]
+						}
+					}
+				},
+				{
+					"name": "3d. Cancel Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{futureJobId}}/cancel",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{futureJobId}}", "cancel"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "4. Failure Handling",
+			"item": [
+				{
+					"name": "4a. Submit Failing Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"failJobId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Failing Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"SHELL_SCRIPT\",\n    \"description\": \"Designed to fail\",\n    \"jobData\": \"{\\\"script\\\": \\\"exit 1\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					}
+				},
+				{
+					"name": "4b. Manually Trigger Fail Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{failJobId}}/run",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{failJobId}}", "run"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "5. Logging & Monitoring",
+			"item": [
+				{
+					"name": "5a. Get Job Runs (Logs)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{failJobId}}/runs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{failJobId}}", "runs"]
+						}
+					}
+				},
+				{
+					"name": "5b. System Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/monitoring/stats",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "monitoring", "stats"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [""]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "httpJobId",
+			"value": ""
+		},
+		{
+			"key": "futureJobId",
+			"value": ""
+		},
+		{
+			"key": "recurringJobId",
+			"value": ""
+		},
+		{
+			"key": "failJobId",
+			"value": ""
+		},
+		{
+			"key": "recurringHttpJobId",
+			"value": ""
+		}
+	]
+}
