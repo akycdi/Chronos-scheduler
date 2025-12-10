@@ -22,7 +22,6 @@ E:\chronos\src\main\java\com\chronos\controller\AuthController.java
 E:\chronos\src\main\java\com\chronos\consumer\JobConsumer.java
 E:\chronos\src\main\java\com\chronos\security\JwtTokenProvider.java
 E:\chronos\src\main\java\com\chronos\service\ScheduleService.java
-E:\chronos\src\main\java\com\chronos\config\ObjectMapperConfig.java
 E:\chronos\src\main\java\com\chronos\controller\JobController.java
 E:\chronos\src\main\java\com\chronos\service\JobService.java
 E:\chronos\src\main\java\com\chronos\model\Job.java

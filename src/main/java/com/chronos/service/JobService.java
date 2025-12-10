@@ -40,7 +40,8 @@ public class JobService {
         // Validate recurring jobs have cron expression
         if (Boolean.TRUE.equals(request.getIsRecurring()) && request.getSchedule() != null) {
             if (!scheduleService.isValidCronExpression(request.getSchedule())) {
-                throw new IllegalArgumentException("Invalid cron expression for recurring job: " + request.getSchedule());
+                throw new IllegalArgumentException(
+                        "Invalid cron expression for recurring job: " + request.getSchedule());
             }
         }
 
@@ -75,8 +76,8 @@ public class JobService {
         job = jobRepository.save(job);
 
         // If immediate execution, enqueue immediately
-        if (job.getNextRunTime() != null && 
-            !job.getNextRunTime().isAfter(LocalDateTime.now())) {
+        if (job.getNextRunTime() != null &&
+                !job.getNextRunTime().isAfter(LocalDateTime.now())) {
             jobQueueService.enqueueJob(job);
         }
 
@@ -103,9 +104,9 @@ public class JobService {
         log.info("Cancelling job: {}", id);
         return jobRepository.findById(id)
                 .map(job -> {
-                    if (job.getStatus() == JobStatus.RUNNING || 
-                        job.getStatus() == JobStatus.SCHEDULED ||
-                        job.getStatus() == JobStatus.PENDING) {
+                    if (job.getStatus() == JobStatus.RUNNING ||
+                            job.getStatus() == JobStatus.SCHEDULED ||
+                            job.getStatus() == JobStatus.PENDING) {
                         job.setStatus(JobStatus.CANCELLED);
                         jobRepository.save(job);
                         return true;
@@ -142,6 +143,20 @@ public class JobService {
     }
 
     @Transactional
+    public boolean runJob(Long id) {
+        log.info("Manually triggering job: {}", id);
+        return jobRepository.findById(id)
+                .map(job -> {
+                    job.setNextRunTime(LocalDateTime.now());
+                    job.setStatus(JobStatus.PENDING);
+                    jobRepository.save(job);
+                    jobQueueService.enqueueJob(job);
+                    return true;
+                })
+                .orElse(false);
+    }
+
+    @Transactional
     public void markJobAsRunning(Long jobId) {
         jobRepository.findById(jobId).ifPresent(job -> {
             job.setStatus(JobStatus.RUNNING);
@@ -172,8 +187,23 @@ public class JobService {
             if (shouldRetry && job.getCurrentRetries() < job.getMaxRetries()) {
                 job.setStatus(JobStatus.RETRYING);
                 job.setCurrentRetries(job.getCurrentRetries() + 1);
+
+                // Calculate retry delay
+                long retryDelaySeconds = 5;
+                try {
+                    if (job.getConfig() != null) {
+                        com.fasterxml.jackson.databind.JsonNode configNode = new com.fasterxml.jackson.databind.ObjectMapper()
+                                .readTree(job.getConfig());
+                        if (configNode.has("retryDelaySeconds")) {
+                            retryDelaySeconds = configNode.get("retryDelaySeconds").asLong();
+                        }
+                    }
+                } catch (Exception e) {
+                    log.warn("Failed to parse job config for retry delay", e);
+                }
+
                 // Schedule retry after delay
-                job.setNextRunTime(LocalDateTime.now().plusSeconds(5));
+                job.setNextRunTime(LocalDateTime.now().plusSeconds(retryDelaySeconds));
             } else {
                 job.setStatus(JobStatus.FAILED);
                 // Notify user about final failure
@@ -226,4 +256,3 @@ public class JobService {
                 .build();
     }
 }
-

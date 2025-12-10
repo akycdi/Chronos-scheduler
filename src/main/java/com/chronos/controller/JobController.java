@@ -68,5 +68,15 @@ public class JobController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-}
 
+    @PostMapping("/{id}/run")
+    public ResponseEntity<Void> runJob(@PathVariable Long id) {
+        log.info("POST /api/jobs/{}/run", id);
+        boolean triggered = jobService.runJob(id);
+        if (triggered) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+}

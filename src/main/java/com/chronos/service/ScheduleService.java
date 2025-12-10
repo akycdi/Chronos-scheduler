@@ -1,7 +1,6 @@
 package com.chronos.service;
 
 import com.cronutils.model.Cron;
-import com.cronutils.model.definition.CronDefinitionBuilder;
 import com.cronutils.model.time.ExecutionTime;
 import com.cronutils.parser.CronParser;
 import lombok.extern.slf4j.Slf4j;

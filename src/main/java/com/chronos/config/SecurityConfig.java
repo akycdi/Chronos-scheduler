@@ -25,49 +25,49 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+        private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/health", "/actuator/**", "/api/auth/**", "/api/monitoring/**",
-                                "/api/mock/**")
-                        .permitAll()
-                        .anyRequest().authenticated())
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http
+                                .csrf(csrf -> csrf.disable())
+                                .authorizeHttpRequests(auth -> auth
+                                                .requestMatchers("/api/health", "/actuator/**", "/api/auth/**",
+                                                                "/api/monitoring/**",
+                                                                "/api/mock/**", "/api/jobs/**")
+                                                .permitAll()
+                                                .anyRequest().authenticated())
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
-    }
+                return http.build();
+        }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        // In production, replace with database-backed user service
-        UserDetails user = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("USER", "ADMIN")
-                .build();
+        @Bean
+        public UserDetailsService userDetailsService() {
+                UserDetails user = User.builder()
+                                .username("admin")
+                                .password(passwordEncoder().encode("admin"))
+                                .roles("USER", "ADMIN")
+                                .build();
 
-        UserDetails user2 = User.builder()
-                .username("user")
-                .password(passwordEncoder().encode("user"))
-                .roles("USER")
-                .build();
+                UserDetails user2 = User.builder()
+                                .username("user")
+                                .password(passwordEncoder().encode("user"))
+                                .roles("USER")
+                                .build();
 
-        return new InMemoryUserDetailsManager(user, user2);
-    }
+                return new InMemoryUserDetailsManager(user, user2);
+        }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
+        @Bean
+        public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+                return config.getAuthenticationManager();
+        }
 }

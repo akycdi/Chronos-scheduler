@@ -1,0 +1,387 @@
+:root {
+  /* Material 3 Dark Palette Inspiration */
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --surface-variant: #2d2d2d;
+
+  /* Primary - Google Blue-ish */
+  --primary-color: #a8c7fa;
+  --primary-on: #062e6f;
+
+  /* Text */
+  --text-color: #e3e3e3;
+  --text-muted: #c4c7c5;
+
+  /* Status Colors */
+  --success-color: #6dd58c;
+  --success-bg: #0f5223;
+
+  --error-color: #f2b8b5;
+  --error-bg: #8c1d18;
+
+  --warning-color: #efb8c8;
+  /* Actually Material Error Pink, but distinct enough */
+  --info-color: #7fcfff;
+
+  --border-radius: 16px;
+  /* Material 3 styled rounded corners */
+  --transition: all 0.2s cubic-bezier(0.2, 0.0, 0, 1.0);
+  /* Material Emphasized easing */
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Inter', system-ui, -apple-system, sans-serif;
+  /* Roboto for that Google feel */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  /* Material headings are often lighter */
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Button Reset */
+button {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  /* Pill shape */
+  transition: var(--transition);
+}
+
+.refresh-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--text-color);
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  /* Slightly wider cards */
+  gap: 1.5rem;
+}
+
+.job-card {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  /* Material Elevation 1 */
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  background-color: var(--surface-variant);
+  /* Material Elevation 2 */
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.job-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  /* Small rounded rect for chips */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-success {
+  background: var(--success-bg);
+  color: var(--success-color);
+}
+
+.status-error {
+  background: var(--error-bg);
+  color: var(--error-color);
+}
+
+.status-running {
+  background: #004a77;
+  color: #c2e7ff;
+  border: 1px solid #c2e7ff;
+}
+
+.status-info {
+  background: #004f58;
+  color: #a4eeff;
+}
+
+.status-default {
+  background: #3c4043;
+  color: #e3e3e3;
+}
+
+.job-details {
+  margin-bottom: auto;
+  /* Pushes content down */
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.job-details p {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-details strong {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.job-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.run-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-on);
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.run-btn:hover:not(:disabled) {
+  filter: brightness(0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.run-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #e3e3e3;
+  color: #444746;
+}
+
+/* FIX: Overflow handling */
+.job-output {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #000;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.job-output h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.job-output pre {
+  margin: 0;
+  white-space: pre-wrap;
+  /* Matches text wrapping */
+  word-break: break-word;
+  /* Breaks long words/URLs */
+  color: #eee;
+}
+
+/* Modal Styles - Material Dialog */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background-color: #2b2d31;
+  /* Dark dialog bg */
+  border-radius: 28px;
+  /* Material Dialog radius */
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.modal-header {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.close-btn {
+  background: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.create-job-form {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  /* Material text field style usually filled */
+  /* Using outlined style for simplicity but cleaner */
+  background-color: transparent;
+  border: 1px solid #8e918f;
+  color: var(--text-color);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  border-width: 2px;
+  outline: none;
+  padding: calc(0.75rem - 1px) calc(1rem - 1px);
+  /* Compensate for border */
+}
+
+/* Filled variant for better contrast */
+input,
+select,
+textarea {
+  background-color: rgba(230, 230, 230, 0.05);
+  border: none;
+  border-bottom: 2px solid #8e918f;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Buttons in Modal */
+.create-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-on);
+  border-radius: 100px;
+  padding: 0.5rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.create-btn:hover {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Helpers */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group.half {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}

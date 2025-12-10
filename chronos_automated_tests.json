@@ -485,6 +485,198 @@
 					"path": ["api", "jobs", "{{cancelJobId}}"]
 				}
 			}
+		},
+		{
+			"name": "11. Real-Time Job: Todos List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"realTimeTodosJobId\", jsonData.id);",
+							"console.log(\"Real-Time Todos Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Real-Time Todos\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Real-time test fetching todos\",\n    \"jobData\": \"{\\\"url\\\": \\\"https://jsonplaceholder.typicode.com/todos/\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "12. Verify Todos List Job",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === \"COMPLETED\") {",
+							"    pm.test(\"Job Completed Successfully\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"COMPLETED\");",
+							"    });",
+							"} else {",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 2000);",
+							"    postman.setNextRequest(\"12. Verify Todos List Job\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{realTimeTodosJobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{realTimeTodosJobId}}"]
+				}
+			}
+		},
+		{
+			"name": "13. Real-Time Job: Single Todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"realTimeTodo1JobId\", jsonData.id);",
+							"console.log(\"Real-Time Todo 1 Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Real-Time Todo 1\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Real-time test fetching single todo\",\n    \"jobData\": \"{\\\"url\\\": \\\"https://jsonplaceholder.typicode.com/todos/1\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "14. Verify Single Todo Job",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === \"COMPLETED\") {",
+							"    pm.test(\"Job Completed Successfully\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"COMPLETED\");",
+							"    });",
+							"} else {",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 2000);",
+							"    postman.setNextRequest(\"14. Verify Single Todo Job\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{realTimeTodo1JobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{realTimeTodo1JobId}}"]
+				}
+			}
 		}
 	],
 	"variable": [
@@ -506,6 +698,14 @@
 		},
 		{
 			"key": "cancelJobId",
+			"value": ""
+		},
+		{
+			"key": "realTimeTodosJobId",
+			"value": ""
+		},
+		{
+			"key": "realTimeTodo1JobId",
 			"value": ""
 		}
 	]

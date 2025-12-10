@@ -1,6 +1,5 @@
 package com.chronos.controller;
 
-import com.chronos.model.JobRun;
 import com.chronos.model.JobStatus;
 import com.chronos.repository.JobRepository;
 import com.chronos.repository.JobRunRepository;

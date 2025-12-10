@@ -3,7 +3,6 @@ package com.chronos.service;
 import com.chronos.model.Job;
 import com.chronos.model.JobRun;
 import com.chronos.model.JobStatus;
-import com.chronos.model.JobType;
 import com.chronos.repository.JobRepository;
 import com.chronos.repository.JobRunRepository;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -21,9 +20,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.TimeoutException;
 import org.springframework.beans.factory.annotation.Value;
 
 @Slf4j

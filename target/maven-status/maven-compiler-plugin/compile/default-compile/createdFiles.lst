@@ -11,7 +11,6 @@ com\chronos\controller\JobRunController.class
 com\chronos\controller\MonitoringController.class
 com\chronos\repository\JobRunRepository.class
 com\chronos\config\WebConfig.class
-com\chronos\config\ObjectMapperConfig.class
 com\chronos\dto\JobRunResponse.class
 com\chronos\model\JobRun.class
 com\chronos\service\JobQueueService.class
@@ -31,6 +30,7 @@ com\chronos\config\WebClientConfig.class
 com\chronos\config\MetricsConfig.class
 com\chronos\repository\JobRepository.class
 com\chronos\controller\AuthController.class
+com\chronos\controller\MockController.class
 com\chronos\dto\JobResponse$JobResponseBuilder.class
 com\chronos\consumer\JobConsumer.class
 com\chronos\model\Job.class
