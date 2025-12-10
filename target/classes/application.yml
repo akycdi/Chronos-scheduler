@@ -36,6 +36,9 @@ chronos:
     poll-interval-ms: 5000
     max-retries: 3
     retry-delay-ms: 5000
+  job:
+    http:
+      timeout-seconds: 60
     worker:
       thread-pool-size: 10
       queue-name: job.execution.queue

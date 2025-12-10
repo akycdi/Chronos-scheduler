@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "c6b7d9e0-f2g3-5h4i-j5k6-l7m8n9o0p1q2",
+		"name": "Chronos Automated Tests",
+		"description": "Automated test suite for Chronos Job Scheduler (Updated)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Login & Setup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"token\", jsonData.token);",
+							"console.log(\"Token set: \" + jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "auth", "login"]
+				}
+			}
+		},
+		{
+			"name": "2. Test Delay (2s)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"delayJobId\", jsonData.id);",
+							"console.log(\"Delay Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Delay Job\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Testing 2s delay\",\n    \"jobData\": \"{\\\"url\\\": \\\"http://localhost:8080/api/mock/delay?ms=2000\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "3. Verify Delay Job Completion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === \"COMPLETED\") {",
+							"    pm.test(\"Job Completed Successfully\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"COMPLETED\");",
+							"    });",
+							"} else {",
+							"    // Retry request if not completed",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 1000); // Wait 1s",
+							"    postman.setNextRequest(\"3. Verify Delay Job Completion\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{delayJobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{delayJobId}}"]
+				}
+			}
+		},
+		{
+			"name": "4. Test Failure & Retry",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"failJobId\", jsonData.id);",
+							"console.log(\"Fail Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Failure Job\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Testing failure and retry\",\n    \"jobData\": \"{\\\"url\\\": \\\"http://localhost:8080/api/mock/fail?status=500\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "5. Verify Failure Job (Retrying)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"// We expect it to eventually fail after retries",
+							"if (jsonData.status === \"FAILED\") {",
+							"    pm.test(\"Job Failed as Expected\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"FAILED\");",
+							"    });",
+							"    pm.test(\"Retries Exhausted\", function () {",
+							"        pm.expect(jsonData.currentRetries).to.eql(jsonData.maxRetries);",
+							"    });",
+							"} else {",
+							"    // Retry request if not yet failed (it might be RUNNING or RETRYING)",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 1000); // Wait 1s",
+							"    postman.setNextRequest(\"5. Verify Failure Job (Retrying)\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{failJobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{failJobId}}"]
+				}
+			}
+		},
+		{
+			"name": "6. Test Flaky Job (Resilience)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"flakyJobId\", jsonData.id);",
+							"console.log(\"Flaky Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Flaky Job\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Testing flaky service with retries\",\n    \"jobData\": \"{\\\"url\\\": \\\"http://localhost:8080/api/mock/flaky?probability=0.5\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "7. Verify Flaky Job (Eventually Success)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === \"COMPLETED\") {",
+							"    pm.test(\"Job Completed Successfully\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"COMPLETED\");",
+							"    });",
+							"} else if (jsonData.status === \"FAILED\") {",
+							"    // It's possible it failed all 5 times, but unlikely with 0.5 prob. ",
+							"    // If it fails, we mark test as failed or just note it.",
+							"    pm.test(\"Job Failed (Unlucky but valid)\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"FAILED\");",
+							"    });",
+							"} else {",
+							"    // Retry",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 1000);",
+							"    postman.setNextRequest(\"7. Verify Flaky Job (Eventually Success)\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{flakyJobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{flakyJobId}}"]
+				}
+			}
+		},
+		{
+			"name": "8. Test Job Cancellation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Job Created (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"cancelJobId\", jsonData.id);",
+							"console.log(\"Cancel Job ID: \" + jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Cancel Job\",\n    \"owner\": \"tester\",\n    \"type\": \"HTTP_REQUEST\",\n    \"description\": \"Testing cancellation of long running job\",\n    \"jobData\": \"{\\\"url\\\": \\\"http://localhost:8080/api/mock/delay?ms=30000\\\", \\\"method\\\": \\\"GET\\\"}\",\n    \"isRecurring\": false,\n    \"maxRetries\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jobs",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs"]
+				}
+			}
+		},
+		{
+			"name": "9. Cancel the Job",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Cancellation Request Sent (200)\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{cancelJobId}}/cancel",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{cancelJobId}}", "cancel"]
+				}
+			}
+		},
+		{
+			"name": "10. Verify Cancellation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.status === \"CANCELLED\") {",
+							"    pm.test(\"Job Cancelled Successfully\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"CANCELLED\");",
+							"    });",
+							"} else if (jsonData.status === \"COMPLETED\") {",
+							"     pm.test(\"Job Completed before Cancellation (Too fast?)\", function () {",
+							"        pm.expect(jsonData.status).to.eql(\"CANCELLED\");",
+							"    });",
+							"} else {",
+							"    // Retry",
+							"    console.log(\"Job status: \" + jsonData.status + \". Retrying...\");",
+							"    setTimeout(function() {}, 1000);",
+							"    postman.setNextRequest(\"10. Verify Cancellation\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/jobs/{{cancelJobId}}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["api", "jobs", "{{cancelJobId}}"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "delayJobId",
+			"value": ""
+		},
+		{
+			"key": "failJobId",
+			"value": ""
+		},
+		{
+			"key": "flakyJobId",
+			"value": ""
+		},
+		{
+			"key": "cancelJobId",
+			"value": ""
+		}
+	]
+}

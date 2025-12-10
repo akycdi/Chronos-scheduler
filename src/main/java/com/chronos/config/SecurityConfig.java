@@ -30,16 +30,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/health", "/actuator/**", "/api/auth/**", "/api/monitoring/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-        
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/health", "/actuator/**", "/api/auth/**", "/api/monitoring/**",
+                                "/api/mock/**")
+                        .permitAll()
+                        .anyRequest().authenticated())
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
@@ -56,7 +56,7 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("admin"))
                 .roles("USER", "ADMIN")
                 .build();
-        
+
         UserDetails user2 = User.builder()
                 .username("user")
                 .password(passwordEncoder().encode("user"))
@@ -71,4 +71,3 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
-
