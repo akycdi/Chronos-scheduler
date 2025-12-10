@@ -115,7 +115,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Test Future Shell Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"SHELL_SCRIPT\",\n    \"description\": \"Scheduled for future\",\n    \"schedule\": \"2099-12-31T23:59:59\",\n    \"jobData\": \"{\\\"script\\\": \\\"echo Future Execution\\\"}\",\n    \"isRecurring\": false\n}"
+							"raw": "{\n    \"name\": \"Test Future Shell Job {{$randomInt}}\",\n    \"owner\": \"tester\",\n    \"type\": \"SHELL_SCRIPT\",\n    \"description\": \"Scheduled for future\",\n    \"schedule\": \"2025-12-10T18:00:00\",\n    \"jobData\": \"{\\\"script\\\": \\\"echo Future Execution\\\"}\",\n    \"isRecurring\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/api/jobs",
