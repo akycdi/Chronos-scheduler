@@ -49,3 +49,6 @@ build/
 Thumbs.db
 
 logs/
+
+render.env
+application.yml
