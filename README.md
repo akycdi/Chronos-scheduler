@@ -1,5 +1,4 @@
 # Chronos - Distributed Job Scheduling System
-
 ## Overview
 
 Chronos is a robust and scalable distributed job scheduling system built with Spring Boot. It provides comprehensive functionality for scheduling, managing, and monitoring both one-time and recurring jobs. The system is designed with scalability and reliability in mind, supporting various job types and automatic retry mechanisms.
